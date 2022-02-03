@@ -1,0 +1,129 @@
+
+html {
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+header {
+    margin-bottom: 64px;
+
+    @include Flex;
+
+    img {
+        border-radius: 16px;
+        margin-top: 41px;
+        margin-bottom: 16px;
+        width: 156px;
+        height: 156px;
+
+    }
+
+    h1 {
+        font-size: $font-size-max;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: $color-strong;
+    }
+
+    h2 {
+        font-size: $font-size-min;
+        font-weight: 600;
+        color: $color-strong-light;
+    }
+
+    .container-box {
+        @include Flex;
+        flex-direction: row;
+
+        margin-top: 24px;
+  
+
+        .box {
+            @include Flex;
+            background-color: $bg-color-strong;
+            width: 100px;
+            height: 67px;
+            border-radius: 12px;
+            display: flex;
+
+            h3 {
+                font-size: $font-size-med;
+                font-weight: 600;
+                margin-bottom: 3px;
+                color: $color-strong;
+            }
+
+            p {
+                font-size: $font-size-min;
+                font-weight: 600;
+                color: $color-light;
+            }
+            &:nth-child(n+2) {
+               margin-left: 24px;
+            }
+        }
+    }
+}
+
+
+
+section {
+    width: 960px;
+    max-width: 95%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas: 
+    "item-1 item-2 item-2"
+    "item-3 item-3 item-4"
+    "item-5 item-6 item-4"
+    ;
+    gap: 24px;
+    
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 1px 1px 5px rgb(0 0 0 / 20%);
+
+    }
+
+    @for $var from 1 to 7 {
+        .item-grid{
+            &:nth-child(#{$var}){
+                grid-area: item-#{$var};
+            }
+        }
+        
+    }
+}
+
+footer{
+    text-align: center;
+    margin: 24px 0;
+    p{
+        font-size: $font-size-min;
+        font-weight: 600;
+        color: #B9BDCF;
+
+        a{
+            color: #B9BDCF;
+            text-decoration: none;
+            transition: .2s ease-in-out;
+            &:hover{
+                color: $color-strong;
+            }
+        }
+    }
+}
